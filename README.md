@@ -16,7 +16,7 @@ Certifique-se de ter os seguintes itens instalados no seu sistema:
 Clone o repositório do projeto para o seu diretório local:
 
 ```bash
-git clone https://seu-repositorio-url.git
+git clone https://github.com/EduardoKaio/mini-twitter.git
 cd mini-twitter
 ```
 
