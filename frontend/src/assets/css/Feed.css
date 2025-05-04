@@ -1,0 +1,373 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+*{
+  font-family: 'Poppins', sans-serif;
+}
+.layout-container {
+  background-color: #F3F4F6;
+  min-height: 100vh; /* Garante que a altura mínima seja a da tela */
+  display: flex;
+  flex-direction: column;
+  padding-left: 240px; /* Espaço para a Sidebar aberta */
+  transition: padding-left 0.3s ease, padding-top 0.3s ease; /* Transição suave ao abrir/fechar a Sidebar */
+}
+
+/* Sidebar fixa à esquerda (já assumida com largura 220px) */
+
+.feed-content {
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  background-color: #f7f3fc; /* Fundo suave para o feed */
+  min-height: 100vh; /* Garante que o fundo ocupe toda a altura da tela */
+  box-sizing: border-box; /* Inclui padding no cálculo do tamanho */
+  font-family: 'Poppins', sans-serif;
+}
+
+.feed-container {
+  padding: 0 1rem;
+  max-width: 800px; /* Limita a largura do feed */
+  width: 100%;
+}
+
+.feed-container h2 {
+  font-size: 1.8rem;
+  color: #6A4C9C;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* Card de Postagem */
+.post-card {
+  display: block;
+  width: 100%;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 12px; /* Bordas mais arredondadas */
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  text-decoration: none;
+  color: inherit;
+  box-shadow: none; /* Remove o efeito de sombra no hover */
+  transform: none; /* Remove a elevação no hover */
+}
+
+.post-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.post-header .post-author {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #6A4C9C;
+}
+
+.post-date-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 0.5rem;
+}
+
+.post-date {
+  font-size: 0.85rem;
+  color: #999;
+  text-align: right;
+}
+
+.post-content {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+  font-size: 1rem;
+  color: #333;
+}
+
+.post-image {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 0.2rem;
+  border: 1px solid #ddd;
+}
+
+.post-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #eee;
+  padding-top: 1rem;
+  gap: 8px; /* Espaço entre os ícones de edição, exclusão e curtir */
+}
+
+.post-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.post-like {
+  margin-left: auto;
+}
+
+.post-footer .like-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1rem;
+  color: #6A4C9C;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.post-footer .like-button:hover {
+  color: #7f3fbf;
+}
+
+.post-footer .comment-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1rem;
+  color: #6A4C9C;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.post-footer .comment-button:hover {
+  color: #7f3fbf;
+}
+
+.like-button {
+  background: none;
+  border: none;
+  color: #6A4C9C;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  font-size: 1.5rem;
+  padding: 0.25rem;
+  transition: color 0.2s;
+}
+
+/* Hover no botão para afetar o ícone */
+.like-button:hover {
+  color: #7f3fbf; /* Cor do texto */
+}
+
+.like-button .like-icon:hover {
+  transform: scale(1.5); /* Aumenta o tamanho do ícone */
+  transition: transform 0.2s ease-in-out; /* Transição suave */
+}
+
+.like-icon {
+  transition: color 0.2s ease-in-out;
+}
+
+.like-icon.liked {
+  color: #8e44ad;
+}
+
+.like-count {
+  font-size: 1.3rem;
+}
+
+.error-message {
+  color: #e74c3c;
+  font-size: 16px;
+  margin-top: 1rem;
+  text-align: center;
+  font-weight: bold;
+}
+
+.carregar-mais {
+  width: 100%;
+  padding: 12px;
+  background-color: #6A4C9C;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.carregar-mais:hover {
+  background-color: #9B7AC2;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.carregar-mais:active {
+  background-color: #5A3A8C;
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.create-post-form {
+  background: #fff;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 24px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+}
+
+.create-post-form textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 12px;
+  resize: vertical;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+  line-height: 1.5;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.create-post-form textarea:focus {
+  border-color: #6A4C9C;
+  box-shadow: 0 0 5px rgba(106, 76, 156, 0.5);
+  outline: none;
+}
+
+.create-post-form input[type="file"] {
+  margin-bottom: 12px;
+  font-size: 0.9rem;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  cursor: pointer;
+  transition: background-color 0.2s, border-color 0.2s;
+}
+
+.create-post-form input[type="file"]:hover {
+  background-color: #f1f1f1;
+  border-color: #6A4C9C;
+}
+
+.create-post-form button {
+  width: 100%;
+  padding: 12px;
+  background-color: #6A4C9C;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.create-post-form button:hover {
+  background-color: #9B7AC2;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.create-post-form button:active {
+  background-color: #5A3A8C;
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.follow-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px; /* Espaço entre o ícone e o texto */
+  margin-left: 8px;
+  padding: 4px 8px;
+  border-radius: 5px;
+  font-size: 0.85rem;
+}
+
+.follow-status.following {
+  background-color: #6A4C9C; /* Cor roxa da paleta */
+  color: #fff;
+}
+
+.follow-status.not-following {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.follow-icon {
+  font-size: 1rem;
+  color: inherit;
+}
+
+.post-indicator {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 4px 8px;
+  background-color: #cce5ff;
+  color: #004085;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  font-weight: bold;
+}
+
+/* Estilos responsivos */
+@media (max-width: 1024px) {
+  .feed-container {
+    max-width: 90%; /* Reduz a largura do feed em telas menores */
+    padding: 0 1rem;
+  }
+
+  .post-card {
+    padding: 1rem; /* Reduz o espaçamento interno dos cards */
+  }
+}
+
+@media (max-width: 768px) {
+  .layout-container {
+    padding-left: 70px; /* Espaço para a Sidebar fechada em telas menores */
+  }
+
+  .feed-content {
+    flex-direction: column; /* Ajusta o layout para coluna */
+    align-items: center;
+  }
+
+  .feed-container {
+    max-width: 100%; /* O feed ocupa toda a largura */
+    padding: 0;
+  }
+
+  .post-card {
+    padding: 0.8rem; /* Reduz ainda mais o espaçamento interno */
+  }
+}
+
+@media (max-width: 480px) {
+  .feed-container h2 {
+    font-size: 1.5rem; /* Reduz o tamanho do título */
+  }
+
+  .post-card {
+    padding: 0.5rem; /* Espaçamento mínimo para telas muito pequenas */
+  }
+
+  .post-header .post-author {
+    font-size: 0.9rem; /* Ajusta o tamanho da fonte do autor */
+  }
+
+  .post-content {
+    font-size: 0.9rem; /* Reduz o tamanho do texto */
+  }
+
+  .post-footer .like-button,
+  .post-footer .comment-button {
+    font-size: 0.9rem; /* Ajusta o tamanho dos botões */
+  }
+}
+
+
+
