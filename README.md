@@ -112,11 +112,11 @@ Acesse a documentação interativa da API em:
 #### Diagrama ERD (Entity-Relationship Diagram)
 - Link para o diagrama ERD: [ERD Diagram](https://dbdiagram.io/d/6817b21d1ca52373f566d2cd)
 - Imagem do diagrama ERD:
-![ERD Diagram](imgs/erd diagram.png)
+![ERD Diagram](imgs/erd_diagram.png)
 
 #### Diagrama de Arquitetura
 - Imagem do diagrama de arquitetura:
-![Arquitetura Diagram](imgs/arq diagram.jpg)
+![Arquitetura Diagram](imgs/arq_diagram.jpg)
 
 ### 13. Desenvolvido por
 
